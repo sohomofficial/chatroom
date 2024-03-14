@@ -11,7 +11,7 @@ const Auth = () => {
     supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + "/auth/callback",
+        redirectTo: "https://your-chatroom.vercel.app/auth/callback",
       },
     });
   };
