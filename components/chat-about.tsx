@@ -3,7 +3,7 @@ import Image from "next/image";
 const ChatAbout = () => {
   return (
     <div className="flex-1 flex items-center justify-center">
-      <div className="text-center space-y-5">
+      <div className="text-center space-y-5 px-5">
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Welcome to Chatroom
         </h1>
