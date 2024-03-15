@@ -33,7 +33,7 @@ const ChatPresence = () => {
   }, [user]);
 
   if (!user) {
-    return <div className=" h-3 w-1"></div>;
+    return <></>;
   }
 
   return (

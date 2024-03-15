@@ -27,13 +27,16 @@ const ChatHeader = ({ user }: { user: User | undefined }) => {
         <div className="flex gap-2">
           <ModeToggle />
           {user ? (
-            <Button onClick={handleLogout}>
+            <Button
+              onClick={handleLogout}
+              className="px-0 py-0 w-10 sm:px-4 sm:py-2 sm:w-full"
+            >
               <span className="hidden sm:block">Logout</span>
               <LucideLogOut className="h-4 w-4 ml-2" />
             </Button>
           ) : (
-            <Link href="/auth">
-              <Button>
+            <Link href="/login">
+              <Button className="px-0 py-0 w-10 sm:px-4 sm:py-2 sm:w-full">
                 <span className="hidden sm:block">Login</span>
                 <LucideLogIn className="h-4 w-4 ml-2" />
               </Button>

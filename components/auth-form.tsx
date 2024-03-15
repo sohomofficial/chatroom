@@ -5,13 +5,13 @@ import { supabaseClient } from "@/lib/supabase/client";
 import { Chrome, Github } from "lucide-react";
 import Link from "next/link";
 
-const Auth = () => {
+const AuthForm = () => {
   const handleLoginWithOAuth = (provider: "google" | "github") => {
     const supabase = supabaseClient();
     supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: "https://your-chatroom.vercel.app/auth/callback",
+        redirectTo: location.origin + "/auth/callback",
       },
     });
   };
@@ -23,7 +23,7 @@ const Auth = () => {
         </h2>
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <div className="flex flex-col gap-6">
+        <div className="mt-6 flex flex-col gap-6">
           <Button
             onClick={() => {
               handleLoginWithOAuth("google");
@@ -56,4 +56,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthForm;
