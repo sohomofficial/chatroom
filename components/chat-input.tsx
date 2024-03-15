@@ -32,7 +32,7 @@ const ChatInput = () => {
       setOptimisticIds(newMessage.id);
       const { error } = await supabase.from("messages").insert({ text, id });
       if (error) {
-        toast.error(error.message);
+        toast.error("Sorry, this message couldn't be delivered.");
       }
     } else {
       toast.error("Message can not be empty!!");
@@ -42,7 +42,7 @@ const ChatInput = () => {
   return (
     <div className="p-5">
       <Textarea
-        className="resize-none"
+        className="resize-none ring-2 ring-primary-foreground"
         placeholder="Send Message 💬🚀"
         onKeyDown={(e) => {
           if (e.key === "Enter") {
