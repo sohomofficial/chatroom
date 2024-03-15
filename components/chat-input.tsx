@@ -40,7 +40,7 @@ const ChatInput = () => {
   };
 
   return (
-    <div className="p-5">
+    <div className="p-5 border-t">
       <Textarea
         className="resize-none ring-2 ring-primary-foreground"
         placeholder="Send Message 💬🚀"

@@ -24,12 +24,12 @@ const Message = ({ message }: { message: Imessage }) => {
           alt={message.users?.display_name!}
           width={40}
           height={40}
-          className="rounded-full ring-2 ring-primary"
+          className="rounded-full shadow-xl"
         />
       </div>
       <div className="flex-1 overflow-x-hidden">
         <div className="flex items-center justify-between">
-          <div className="border-b-2">
+          <div className="mb-2">
             <h1 className="font-bold">{message.users?.display_name}</h1>
             <h1 className="text-xs text-secondary-foreground">
               {new Date(message.created_at).toLocaleString()}
@@ -40,7 +40,9 @@ const Message = ({ message }: { message: Imessage }) => {
           </div>
           {message.users?.id === user?.id && <MessageMenu message={message} />}
         </div>
-        <p className="break-words font-medium">{message.text}</p>
+        <p className="break-words font-medium bg-primary text-black rounded-r-3xl rounded-bl-3xl p-4 w-fit">
+          {message.text}
+        </p>
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const MessagesList = () => {
                 ...payload.new,
                 users: data,
               };
-              addMessage(newMessage as Imessage);
+              addMessage(newMessage as unknown as Imessage);
             }
           }
           const scrollContainer = scrollRef.current;
@@ -123,17 +123,19 @@ const MessagesList = () => {
         <EditAlert />
       </div>
       {userScrolled && (
-        <div className=" absolute bottom-20 w-full">
+        <div className="absolute bottom-32 w-full">
           {notification ? (
             <div
-              className="w-36 mx-auto bg-primary p-1 rounded-md cursor-pointer"
+              className="mx-auto w-fit text-sm font-semibold bg-secondary p-2 rounded-full ring-2 ring-current cursor-pointer"
               onClick={scrollDown}
             >
-              <h1>New {notification} messages</h1>
+              <h1>
+                {notification} new {notification > 1 ? "messages!" : "message!"}
+              </h1>
             </div>
           ) : (
             <div
-              className="w-10 h-10 bg-primary rounded-full justify-center items-center flex mx-auto border cursor-pointer hover:scale-110 transition-all"
+              className="w-10 h-10 bg-background rounded-full justify-center items-center flex mx-auto ring-2 ring-current cursor-pointer hover:scale-110 transition-all"
               onClick={scrollDown}
             >
               <ArrowDown />

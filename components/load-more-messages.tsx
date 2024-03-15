@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "./ui/button";
 import { supabaseClient } from "@/lib/supabase/client";
 import { LIMIT_MESSAGE } from "@/constants";
@@ -10,12 +9,9 @@ const LoadMoreMessages = () => {
   const page = useMessage((state) => state.page);
   const setMessages = useMessage((state) => state.setMessages);
   const hasMore = useMessage((state) => state.hasMore);
-
   const fetchMore = async () => {
     const { from, to } = getFromAndTo(page, LIMIT_MESSAGE);
-
     const supabase = supabaseClient();
-
     const { data, error } = await supabase
       .from("messages")
       .select("*,users(*)")
@@ -31,7 +27,7 @@ const LoadMoreMessages = () => {
 
   if (hasMore) {
     return (
-      <Button variant="outline" className="w-full" onClick={fetchMore}>
+      <Button variant="secondary" className="w-full" onClick={fetchMore}>
         Load More
       </Button>
     );
