@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { supabaseClient } from "@/lib/supabase/client";
-import { Chrome, Github, TentTree } from "lucide-react";
+import { Chrome, Github, Loader2, TentTree } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const AuthForm = () => {
+  const [logging, setLogging] = useState(false);
   const handleLoginWithOAuth = (provider: "google" | "github" | "discord") => {
+    setLogging(true);
     const supabase = supabaseClient();
     supabase.auth.signInWithOAuth({
       provider,
@@ -32,14 +35,23 @@ const AuthForm = () => {
             <Chrome className="h-4 w-4 mr-2" />
             Google
           </Button> */}
-          <Button
-            onClick={() => {
-              handleLoginWithOAuth("github");
-            }}
-          >
-            <Github className="h-4 w-4 mr-2" />
-            Github
-          </Button>
+          {logging ? (
+            <Button disabled>
+              <Github className="h-4 w-4 mr-2" />
+              Github
+              <Loader2 className="h-4 w-4 ml-2 animate-spin" />
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                handleLoginWithOAuth("github");
+              }}
+            >
+              <Github className="h-4 w-4 mr-2" />
+              Github
+            </Button>
+          )}
+
           {/* <Button
             onClick={() => {
               handleLoginWithOAuth("discord");
