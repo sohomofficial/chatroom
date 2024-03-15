@@ -42,6 +42,7 @@ const ChatInput = () => {
   return (
     <div className="p-5">
       <Textarea
+        className="resize-none"
         placeholder="Send Message 💬🚀"
         onKeyDown={(e) => {
           if (e.key === "Enter") {

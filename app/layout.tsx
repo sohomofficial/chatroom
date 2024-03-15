@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   },
   description:
     "This is a chat application that is powered by supabase realtime db. 💬🚀",
+  metadataBase: new URL("https://your-chatroom.vercel.app"),
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

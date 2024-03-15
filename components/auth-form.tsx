@@ -2,16 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { supabaseClient } from "@/lib/supabase/client";
-import { Chrome, Github } from "lucide-react";
+import { Chrome, Github, TentTree } from "lucide-react";
 import Link from "next/link";
 
 const AuthForm = () => {
-  const handleLoginWithOAuth = (provider: "google" | "github") => {
+  const handleLoginWithOAuth = (provider: "google" | "github" | "discord") => {
     const supabase = supabaseClient();
     supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + "/auth/callback",
+        redirectTo: "https://your-chatroom.vercel.app/auth/callback",
       },
     });
   };
@@ -24,14 +24,14 @@ const AuthForm = () => {
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <div className="mt-6 flex flex-col gap-6">
-          <Button
+          {/* <Button
             onClick={() => {
               handleLoginWithOAuth("google");
             }}
           >
             <Chrome className="h-4 w-4 mr-2" />
             Google
-          </Button>
+          </Button> */}
           <Button
             onClick={() => {
               handleLoginWithOAuth("github");
@@ -40,6 +40,14 @@ const AuthForm = () => {
             <Github className="h-4 w-4 mr-2" />
             Github
           </Button>
+          {/* <Button
+            onClick={() => {
+              handleLoginWithOAuth("discord");
+            }}
+          >
+            <TentTree className="h-4 w-4 mr-2" />
+            Discord
+          </Button> */}
         </div>
         <p className="mt-10 text-center text-sm">
           Go back to{" "}
