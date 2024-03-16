@@ -43,7 +43,7 @@ export function DeleteAlert() {
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success("Successfully delete a message");
+      toast.success("Message deleted successfully");
     }
   };
 
@@ -54,10 +54,12 @@ export function DeleteAlert() {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>
+            Are you sure you want to delete this message?
+          </AlertDialogTitle>
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            message from our database.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -94,7 +96,7 @@ export function EditAlert() {
       if (error) {
         toast.error(error.message);
       } else {
-        toast.success("Update Successfully");
+        toast.success("Message updated successfully");
       }
       document.getElementById("trigger-edit")?.click();
     } else {

@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 import ChatPresence from "./chat-presence";
 import { ModeToggle } from "./mode toggle";
 import Link from "next/link";
-import { LucideLogIn, LucideLogOut } from "lucide-react";
+import { Download, LucideLogIn, LucideLogOut } from "lucide-react";
+import InstallPWA from "./pwa-install";
 
 const ChatHeader = ({ user }: { user: User | undefined }) => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const ChatHeader = ({ user }: { user: User | undefined }) => {
         </div>
         <div className="flex gap-2">
           <ModeToggle />
+          <InstallPWA />
           {user ? (
             <Button
               onClick={handleLogout}

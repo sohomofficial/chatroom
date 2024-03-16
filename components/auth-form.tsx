@@ -2,14 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { supabaseClient } from "@/lib/supabase/client";
-import { Github, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 const AuthForm = () => {
-  const [logging, setLogging] = useState(false);
-  const handleLoginWithOAuth = (provider: "github") => {
-    setLogging(true);
+  const [loggingWithGoogle, setLoggingWithGoogle] = useState(false);
+  const [loggingWithGithub, setLoggingWithGithub] = useState(false);
+  const [loggingWithDiscord, setLoggingWithDiscord] = useState(false);
+  const handleLoginWithOAuth = (provider: "google" | "github" | "discord") => {
     const supabase = supabaseClient();
     supabase.auth.signInWithOAuth({
       provider,
@@ -27,7 +29,7 @@ const AuthForm = () => {
       </div>
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <div className="flex flex-col gap-6">
-          {logging ? (
+          {loggingWithGoogle ? (
             <Button disabled>
               Logging In
               <Loader2 className="h-4 w-4 ml-2 animate-spin" />
@@ -35,18 +37,65 @@ const AuthForm = () => {
           ) : (
             <Button
               onClick={() => {
+                setLoggingWithGoogle(true);
+                handleLoginWithOAuth("google");
+              }}
+            >
+              <Image
+                src="/icons/google.svg"
+                alt="Discord Icon"
+                width={20}
+                height={20}
+                className="mr-2"
+              />
+              Google
+            </Button>
+          )}
+          {loggingWithGithub ? (
+            <Button disabled>
+              Logging In
+              <Loader2 className="h-4 w-4 ml-2 animate-spin" />
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                setLoggingWithGithub(true);
                 handleLoginWithOAuth("github");
               }}
             >
-              <Github className="h-4 w-4 mr-2" />
+              <Image
+                src="/icons/github.svg"
+                alt="Discord Icon"
+                width={20}
+                height={20}
+                className="mr-2"
+              />
               Github
             </Button>
           )}
+          {loggingWithDiscord ? (
+            <Button disabled>
+              Logging In
+              <Loader2 className="h-4 w-4 ml-2 animate-spin" />
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                setLoggingWithDiscord(true);
+                handleLoginWithOAuth("discord");
+              }}
+            >
+              <Image
+                src="/icons/discord.svg"
+                alt="Discord Icon"
+                width={20}
+                height={20}
+                className="mr-2"
+              />
+              Discord
+            </Button>
+          )}
         </div>
-        <p className="mt-10 text-center text-sm">
-          For now, we only have Github as the OAuth provider but, will be adding
-          others like Google, Facebook, Discord soon. 🌟🔜
-        </p>
         <p className="mt-10 text-center">
           Go back to{" "}
           <Link
