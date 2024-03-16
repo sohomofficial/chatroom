@@ -10,7 +10,7 @@ const InstallPWA = () => {
     const handleBeforeInstallPrompt = (event: any) => {
       event.preventDefault();
       setPrompt(event);
-      if (window.matchMedia("(display-mode: standalone)").matches) {
+      if (!window.matchMedia("(display-mode: standalone)").matches) {
         setShowButton(true);
       }
     };
