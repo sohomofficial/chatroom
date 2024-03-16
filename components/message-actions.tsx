@@ -23,8 +23,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { useRef } from "react";
+import { Textarea } from "./ui/textarea";
 
 export function DeleteAlert() {
   const actionMessage = useMessage((state) => state.actionMessage);
@@ -78,7 +78,7 @@ export function EditAlert() {
   const optimisticUpdateMessage = useMessage(
     (state) => state.optimisticUpdateMessage
   );
-  const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const inputRef = useRef() as React.MutableRefObject<HTMLTextAreaElement>;
   const handleEdit = async () => {
     const supabase = supabaseClient();
     const text = inputRef.current.value.trim();
@@ -114,7 +114,11 @@ export function EditAlert() {
         <DialogHeader>
           <DialogTitle>Edit Message</DialogTitle>
         </DialogHeader>
-        <Input defaultValue={actionMessage?.text} ref={inputRef} />
+        <Textarea
+          className="resize-none ring-2 ring-primary-foreground"
+          defaultValue={actionMessage?.text}
+          ref={inputRef}
+        />
         <DialogFooter>
           <Button type="submit" onClick={handleEdit}>
             Save changes

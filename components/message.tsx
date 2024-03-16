@@ -40,7 +40,7 @@ const Message = ({ message }: { message: Imessage }) => {
           </div>
           {message.users?.id === user?.id && <MessageMenu message={message} />}
         </div>
-        <p className="break-words font-medium bg-primary text-black rounded-r-3xl rounded-bl-3xl p-4 w-fit">
+        <p className="break-words font-medium border border-primary rounded-r-3xl rounded-bl-3xl p-4 w-fit">
           {message.text}
         </p>
       </div>
