@@ -32,13 +32,16 @@ const ChatHeader = ({ user }: { user: User | undefined }) => {
             <Button
               onClick={handleLogout}
               className="px-0 py-0 w-10 sm:px-4 sm:py-2 sm:w-full"
+              name="Logout"
             >
+              <span className="sr-only">Logout</span>
               <span className="hidden sm:block">Logout</span>
               <LucideLogOut className="h-4 w-4 ml-2" />
             </Button>
           ) : (
             <Link href="/login">
               <Button className="px-0 py-0 w-10 sm:px-4 sm:py-2 sm:w-full">
+                <span className="sr-only">Login</span>
                 <span className="hidden sm:block">Login</span>
                 <LucideLogIn className="h-4 w-4 ml-2" />
               </Button>

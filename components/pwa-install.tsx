@@ -34,6 +34,7 @@ const InstallPWA = () => {
     <div>
       {showButton && (
         <Button size={"icon"} onClick={handleInstallClick}>
+          <span className="sr-only">Download PWA</span>
           <Download className="h-4 w-4" />
         </Button>
       )}
