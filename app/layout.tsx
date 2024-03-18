@@ -12,9 +12,8 @@ export const metadata: Metadata = {
     template: "%s | Chatroom",
     default: "Chatroom",
   },
-  description:
-    "This is a chat application that is powered by supabase realtime db. 💬🚀",
-  metadataBase: new URL("https://your-chatroom.vercel.app"),
+  description: "🚀 Stay connected with all your circles in one place. 💬",
+  metadataBase: new URL("https://newchatroom.vercel.app"),
   manifest: "/manifest.json",
 };
 
