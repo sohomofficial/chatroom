@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  Chatroom <img src="https://github.com/sohomofficial/chatroom/assets/93909798/e11ad4f3-90e3-4114-a3d6-77635b93edbe" alt="chatroom-icon" width="60px"/>
+A real-time web hangout built with Next.js and powered by Supabase. Dive into conversations, all in one place.
+![all-devices-black](https://github.com/sohomofficial/chatroom/assets/93909798/bc3c5cbd-b910-42f5-8fb5-3a727cdb158d)
 
-## Getting Started
+## Features
 
-First, run the development server:
+- Easy & Secure Authentication by renound OAuth providers like Google, Github & Discord.
+- Real time chat experience.
+- PWA support
+- Enhanced Accessibility 
+- Theme switch
+- Fully Responsive & more...
+## Environment Variables
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+To run this project, you will need to add the following environment variables to your .env.local file.
+
+```
+# SUPABASE
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Run Locally
 
-## Learn More
+Clone the project
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  git clone https://github.com/sohomofficial/chatroom.git
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Go to the project directory
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  cd chatroom
+```
 
-## Deploy on Vercel
+Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npm i
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Credits
+
+ - [Chensokheng](https://github.com/Chensokheng)
+ - [Build and deploy a real time chat application with Supabase,Next.js 2024 full course](https://youtu.be/-xXASlyU0Ck?si=yZBIWP2a44eLzjEM)
+
+
